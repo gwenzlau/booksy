@@ -1,0 +1,16 @@
+<br>
+<div class="profile-pic" align="center">
+	<%= image_tag(@user.avatar.url, :class =>'img-circle') %>
+</div>
+
+ <div align="left">
+  <h3><a>
+  	<%= link_to @user.name, current_user %></a>
+   is currently reading </h3>
+  </div>
+
+	<div align="right">
+		<h3>
+				<a> <%= @user.books %> Brave New World</a>
+		</h3>
+	</div>

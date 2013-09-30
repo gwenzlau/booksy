@@ -5,6 +5,10 @@ gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem 'devise'
 gem 'simple_form'
+gem "paperclip", "~> 2.7"
+gem 'rails_admin'
+gem  'goodreads'
+
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

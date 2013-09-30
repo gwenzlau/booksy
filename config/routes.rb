@@ -1,8 +1,17 @@
 Booksy::Application.routes.draw do
-  resources :posts
+  
+  resources :collections
 
+
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+
+  resources :books
 
   devise_for :users
+  resources :users, :only => [:show, :index]
+ 
+   match 'users/:id' => 'users#show'
+   match 'users/' => 'users#index'
 
   get "pages/home"
 
