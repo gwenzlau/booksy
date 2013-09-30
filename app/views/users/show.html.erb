@@ -11,6 +11,11 @@
 
 	<div align="right">
 		<h3>
-				<a> <%= @user.books %> Brave New World</a>
+				<a> <% @user.collections %> Brave New World</a>.
 		</h3>
+		<% if current_user %>
+		<button class="btn">Add another book</button>
+		<button class="btn btn-success">Finished!</button>
+		<button class="btn btn-danger"> Abandoned</button>
+		<% end -%>
 	</div>
