@@ -11,11 +11,19 @@
 
 	<div align="right">
 		<h3>
-				<a> <% @user.collections %> Brave New World</a>.
+				<a> <% @user.collections %> </a>.
+				
 		</h3>
 		<% if current_user %>
-		<button class="btn">Add another book</button>
+		<button class="btn"><%= link_to "Add another book", new_book_path%></button>
 		<button class="btn btn-success">Finished!</button>
 		<button class="btn btn-danger"> Abandoned</button>
 		<% end -%>
 	</div>
+	<br>
+	<table class="table">
+		<th>Past Reads</th><th>Future Reads</th>
+		  <tr>
+			<% @books %>
+		  </tr>
+</table>
