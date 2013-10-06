@@ -14,7 +14,8 @@ class PagesController < ApplicationController
   def olid
     bok = Openlibrary::Client.new
     #current = bok.book("OL8777065W")
-    @leser = bok.book(params[:id])
+    #@leser = bok.find_by_olid(params[:id])
+    @leser = bok.search(params[:id])
     
     # // This will get only the info_url and thumbnail(small)
     #bok = Openlibrary::View

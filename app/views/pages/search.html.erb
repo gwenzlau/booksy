@@ -1,9 +1,18 @@
 <h2>Search result</h2>
 
-<ul>
-	<% @results.each do |book| %>
-		<li><a href="book/<%= book.cover_edition_key %>"><%= book.title %></a> (<%= book.publish_year[0] %>) by <%= book.author_name[0] %></li>
-	<% end %>
-</ul>
+<div class="bl-book-page">
 
-<%= @results %>
+	<h2>Search result</h2>
+	This is the result after your query: "<%= params[:q] %>"<br /><br />
+	
+	<ul>
+		<% @results.each do |book| %>
+			<li><a href="book/<%= book.text[0] %>"><%= book.title %></a> (<%= book.publish_year.blank? ? "n/a" : book.publish_year[0] %>) by <%= book.author_name[0] %></li>
+		<% end %>
+	</ul>
+	
+</div>
+
+<!-- <% @results.each do |les| %>
+<%= les %><br /> <br />
+<% end %> -->

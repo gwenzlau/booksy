@@ -3,10 +3,38 @@
 Looking for OLID: <%= params[:id] %><br />
 
 <div class="bl-book-page">
-	<h2><%= @leser.title %><span><%= @leser.subtitle %></span></h2>
-	Written by SomeName and published by SomeName	
+	<% @leser.each do |book| %>
+	<h2><%= book.title %> <span>by <%= book.author_name[0] %></span></h2>
+	Published by <%= book.publisher[0] %>
+	
+	<h3>Book details</h3>
+	<ul>
+		<li>Year: <%= book.publish_year.blank? ? "n/a" : book.publish_year[0] %></li>
+		<li>ISBN: <%= book.isbn[0] %> or <%= book.isbn[1] %></li>
+		<li>Language: <%= book.language.blank? ? "n/a" : book.language[0] %></li>
+		<li><%= link_to "Show book on Openlibrary", "#" %></li>
+		
+		<% if book.id_goodreads.blank? %>
+			
+		<% else %>
+			<li><a href="http://www.goodreads.com/book/show/<%= book.id_goodreads[0] %>" target="_blank">View on Goodreads</a></li>
+		<% end %>
+		
+	</ul>
+	<% end %>
+	
+	<h3>People reading this book right now</h3>
+	<img src="https://dl.dropboxusercontent.com/u/11223982/users_bl_example.png" /><br />
+	<a href="#">View more</a>
+	
+	<h3>What next?</h3>
+	Hey, looks like you have never read this book...<br />
+	<img src="https://dl.dropboxusercontent.com/u/11223982/bl_menu_ex.png" />
+	
+	<h3>Book discussions</h3>
+	<ul>
+		<li><a href="#">Read discussions from chapter 1</a></li>
+		<li><a href="#">Read discussions from chapter 2</a></li>
+		<li><a href="#">Read discussions from chapter 3</a></li>
+	</ul>
 </div>
-
-x: <%= @leser %><br /><br />
-
-<img src="http://covers.openlibrary.org/w/id/<%= @leser.covers[0] %>-L.jpg" />
