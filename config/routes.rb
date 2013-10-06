@@ -10,10 +10,13 @@ Booksy::Application.routes.draw do
   devise_for :users
   resources :users, :only => [:show, :index]
  
-   match 'users/:id' => 'users#show'
-   match 'users/' => 'users#index'
+   get 'users/:id', to: 'users#show'
+   get 'users/', to: 'users#index'
+   get 'search/', to: 'pages#search'
+   get 'book/:id', to: 'pages#olid'
 
   get "pages/home"
+  
 
   root :to => 'pages#home'
   

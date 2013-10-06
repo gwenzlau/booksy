@@ -1,0 +1,12 @@
+<h2>Book details</h2>
+
+Looking for OLID: <%= params[:id] %><br />
+
+<div class="bl-book-page">
+	<h2><%= @leser.title %><span><%= @leser.subtitle %></span></h2>
+	Written by SomeName and published by SomeName	
+</div>
+
+x: <%= @leser %><br /><br />
+
+<img src="http://covers.openlibrary.org/w/id/<%= @leser.covers[0] %>-L.jpg" />

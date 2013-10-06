@@ -3,6 +3,7 @@ $navbarBackground: white;
 $btnPrimaryBackground: purple;
 
 @import 'bootstrap';
+
 body{
     padding-top: 50px;
 }
@@ -49,4 +50,22 @@ border-radius: 15px;
 }
 .title-link {
   color: #88F5AF;
+}
+
+div.bl-book-page {
+	
+	h2 {
+		font-family: "helvetica neue", arial;
+		font-size: 38px;
+		text-transform: none;
+		letter-spacing: 0px;
+		font-weight: bold;
+		
+		span {
+			color: #999;
+			font-size: 24px;
+			padding-left: 20px;
+			font-weight: normal;
+		}
+	}
 }

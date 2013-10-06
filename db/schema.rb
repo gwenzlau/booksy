@@ -18,7 +18,10 @@ ActiveRecord::Schema.define(:version => 20130930191531) do
     t.datetime "updated_at", :null => false
     t.string   "title"
     t.string   "author"
+    t.integer  "user_id"
   end
+
+  add_index "books", ["user_id"], :name => "index_books_on_user_id"
 
   create_table "books_users", :id => false, :force => true do |t|
     t.integer "book_id"
@@ -28,16 +31,12 @@ ActiveRecord::Schema.define(:version => 20130930191531) do
   create_table "collections", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-  end
-
-  create_table "posts", :force => true do |t|
-    t.string   "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
     t.integer  "user_id"
+    t.integer  "book_id"
   end
 
-  add_index "posts", ["user_id"], :name => "index_posts_on_user_id"
+  add_index "collections", ["book_id"], :name => "index_collections_on_book_id"
+  add_index "collections", ["user_id"], :name => "index_collections_on_user_id"
 
   create_table "rails_admin_histories", :force => true do |t|
     t.text     "message"

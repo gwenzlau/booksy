@@ -1,0 +1,9 @@
+<h2>Search result</h2>
+
+<ul>
+	<% @results.each do |book| %>
+		<li><a href="book/<%= book.cover_edition_key %>"><%= book.title %></a> (<%= book.publish_year[0] %>) by <%= book.author_name[0] %></li>
+	<% end %>
+</ul>
+
+<%= @results %>
