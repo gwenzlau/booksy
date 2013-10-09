@@ -17,6 +17,8 @@ class PagesController < ApplicationController
     #@leser = bok.find_by_olid(params[:id])
     @leser = bok.search(params[:id])
     
+    @newbook = current_user.books.build
+    
     # Add another api call here forb bok.book(OLID or ISBN from @leser)
     
     # // This will get only the info_url and thumbnail(small)

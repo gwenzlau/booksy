@@ -34,17 +34,23 @@ class BooksController < ApplicationController
   # POST /books
   # POST /books.json
   def create
-    @book = Book.new(params[:book])
-
-    respond_to do |format|
-      if @book.save
-        format.html { redirect_to @book, notice: 'Here is the book page.' }
-        format.json { render json: @book, status: :created, location: @book }
-      else
-        format.html { render action: "onew" }
-        format.json { render json: @book.errors, status: :unprocessable_entity }
-      end
+    @book = current_user.books.build(params[:book])
+    if @book.save
+      redirect_to root_path
+    else
+      redirect_to user_path
     end
+    #@book = Book.new(params[:book])
+
+    #respond_to do |format|
+     # if @book.save
+      #  format.html { redirect_to @book, notice: 'Here is the book page.' }
+       # format.json { render json: @book, status: :created, location: @book }
+    #  else
+     #   format.html { render action: "onew" }
+      #  format.json { render json: @book.errors, status: :unprocessable_entity }
+    #  end
+  #  end
   end
 
   # PUT /books/1

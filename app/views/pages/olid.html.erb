@@ -21,7 +21,6 @@ Looking for OLID: <%= params[:id] %><br />
 		<% end %>
 		
 	</ul>
-	<% end %>
 	
 	<h3>People reading this book right now</h3>
 	<img src="https://dl.dropboxusercontent.com/u/11223982/users_bl_example.png" /><br />
@@ -29,6 +28,17 @@ Looking for OLID: <%= params[:id] %><br />
 	
 	<h3>What next?</h3>
 	Hey, looks like you have never read this book...<br />
+	<%= form_for(@newbook) do |f| %>
+	<%= f.hidden_field :title, :value => book.title %>
+	<%= f.hidden_field :author, :value => book.author_name[0] %>
+	<%= f.hidden_field :olida, :value => params[:id] %>
+	<%= f.hidden_field :olidb, :value => "na" %>
+	<%= f.hidden_field :user_id, :value => current_user.id %>
+	<%= f.submit "I am reading this book", :class => "btn" %>
+	<% end %>
+	
+	<% end %>
+	
 	<img src="https://dl.dropboxusercontent.com/u/11223982/bl_menu_ex.png" />
 	
 	<h3>Book discussions</h3>
