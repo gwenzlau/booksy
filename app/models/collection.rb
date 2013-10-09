@@ -1,5 +1,5 @@
 class Collection < ActiveRecord::Base
   # attr_accessible :title, :body
-  belongs_to :User
-  belongs_to :Book
+  belongs_to :user
+  belongs_to :book
 end

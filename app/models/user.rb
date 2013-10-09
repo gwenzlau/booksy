@@ -9,5 +9,6 @@ class User < ActiveRecord::Base
   	has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }
 
 has_many :collections, dependent: :destroy
-has_many :books, :through => :collections, source: :User
+has_many :books, :through => :collections
+
 end
