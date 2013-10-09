@@ -7,6 +7,12 @@
   <h3><a>
   	<%= link_to @user.name, current_user %></a>
    is currently reading </h3>
+	 
+	 <ul>
+	 <% @book.each do |book| %>
+	 	<li>Book: <%= book %></li>	
+	 <% end %>
+ </ul>
   </div>
 
 	<div align="right">

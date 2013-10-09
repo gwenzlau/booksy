@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131009160521) do
+ActiveRecord::Schema.define(version: 20131009170501) do
 
   create_table "books", force: true do |t|
     t.datetime "created_at", null: false
@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(version: 20131009160521) do
     t.string   "title"
     t.string   "author"
     t.integer  "user_id"
-    t.integer  "olida"
-    t.integer  "olidb"
+    t.string   "olida"
+    t.string   "olidb"
   end
 
   add_index "books", ["user_id"], name: "index_books_on_user_id"
