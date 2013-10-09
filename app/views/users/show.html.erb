@@ -1,35 +1,17 @@
-<br>
+<br />
+
 <div class="profile-pic" align="center">
 	<%= image_tag(@user.avatar.url, :class =>'img-circle') %>
 </div>
 
- <div align="left">
-  <h3><a>
-  	<%= link_to @user.name, current_user %></a>
-   is currently reading </h3>
-	 
-	 <ul>
-	 <% @book.each do |book| %>
-	 	<li>Book: <%= book.olida %> (<%= book.title %>)</li>	
-	 <% end %>
- </ul>
-  </div>
-
-	<div align="right">
-		<h3>
-				<a> <% @user.collections %> </a>.
-				
-		</h3>
-		<% if current_user %>
-		<button class="btn"><%= link_to "Add another book", new_book_path%></button>
-		<button class="btn btn-success">Finished!</button>
-		<button class="btn btn-danger"> Abandoned</button>
-		<% end -%>
-	</div>
-	<br>
-	<table class="table">
-		<th>Past Reads</th><th>Future Reads</th>
-		  <tr>
-			<% @books %>
-		  </tr>
-</table>
+<div class="bl-book-page">
+	<h2><%= @user.name %></h2>
+	This is what I am reading:
+	
+	<h3>Currently reading</h3>
+ 	<ul>
+ 	 <% @book.each do |book| %>
+	 	<li><a href="../book/<%= book.olida %>"><%= book.title %></a> by <%= book.author %></li>
+ 	 <% end %>
+	</ul>
+</div>
