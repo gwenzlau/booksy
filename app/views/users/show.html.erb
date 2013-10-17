@@ -11,7 +11,7 @@
 	<h3>Currently reading</h3>
  	<ul>
  	 <% @book.each do |book| %>
-	 	<li><a href="../book/<%= book.olida %>"><%= book.title %></a> by <%= book.author %></li>
+		<li><%= link_to book.title, book_path(:id => book.olidb) %> by <%= book.author %></li>
  	 <% end %>
 	</ul>
 </div>

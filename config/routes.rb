@@ -1,11 +1,10 @@
 Booksy::Application.routes.draw do
   
   resources :collections
+  resources :books
 
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
-
-  resources :books
 
   devise_for :users
   resources :users, :only => [:show, :index]
@@ -13,7 +12,7 @@ Booksy::Application.routes.draw do
    get 'users/:id', to: 'users#show'
    get 'users/', to: 'users#index'
    get 'search/', to: 'pages#search'
-   get 'book/:id', to: 'pages#olid'
+   get 'finshed', to: 'books#finished'
 
   get "pages/home"
   
