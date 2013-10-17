@@ -27,15 +27,21 @@ Looking for OLID: <%= params[:id] %><br />
 	<a href="#">View more</a>
 	
 	<h3>What next?</h3>
-	Hey, looks like you have never read this book..<br />
 	
 	<%# Is the user signed in?%>
 	<% if user_signed_in? %>
 		<%# This will check if the user is reading the book and display options %>
 		<% if Book.where(:user_id => current_user.id).where(:olidb => params[:id]).exists? %>
-			<%= button_to "Abandon this book", {:controller => :books, :action => 'destroy', :id => @mybook[0].id}, :method => :delete, :class => "btn", :confirm => "Are you sure?" %>			
-			<%= button_to "I have finished reading this book", {:controller => :books, :action => 'update', :id => @mybook[0].id}, :method => :put, :class => "btn", :confirm => "Are you sure?" %>
+		
+			<% if @mybook[0].olida == "1" %>
+		 		<b>Hey</b>, you finished this book on: <%= @mybook[0].updated_at %>
+		 	<% else %>
+				<%= button_to "Abandon this book", {:controller => :books, :action => 'destroy', :id => @mybook[0].id}, :method => :delete, :class => "btn", :confirm => "Are you sure?" %>			
+				<%= button_to "I have finished reading this book", {:controller => :books, :action => 'update', :id => @mybook[0].id}, :method => :put, :class => "btn", :confirm => "Are you sure?" %>
+		 	<% end %>
+		
 		<% else %>
+		
 			<%= form_for(@newbook) do |f| %>
 				<%= f.hidden_field :title, :value => book.title %>
 				<%= f.hidden_field :author, :value => book.author_name[0] %>
@@ -44,6 +50,7 @@ Looking for OLID: <%= params[:id] %><br />
 				<%= f.hidden_field :user_id, :value => current_user.id %>
 				<%= f.submit "Start reading this book", :class => "btn" %>
 				<% end %>
+		
 		<% end %>
 	<% else %>
 		<%# Show something if the user is not signed in... %>
