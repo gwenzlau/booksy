@@ -66,14 +66,10 @@ class BooksController < ApplicationController
   def update
     @book = Book.find(params[:id])
 
-    respond_to do |format|
-      if @book.update_attributes(params[:book])
-        format.html { redirect_to @book, notice: 'Book was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @book.errors, status: :unprocessable_entity }
-      end
+    if @book.update_attribute(:olida, "1")
+      redirect_to root_path
+    else
+      redirect_to root_path
     end
   end
   

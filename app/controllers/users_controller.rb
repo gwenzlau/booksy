@@ -10,8 +10,10 @@ class UsersController < ApplicationController
    
 	def show
 		@user = User.find(params[:id])
-    #@book = current_user.books.all
-    @book = Book.where(:user_id => current_user.id).all
+    
+    # Users are reading now and have previously read:
+    @book = Book.where(:user_id => current_user.id).where.not(:olida => "1")
+    @past = Book.where(:user_id => current_user.id).where(:olida => "1")
 	end
   
 end

@@ -14,4 +14,11 @@
 		<li><%= link_to book.title, book_path(:id => book.olidb) %> by <%= book.author %></li>
  	 <% end %>
 	</ul>
+	
+	<h3>Books I loved</h3>
+	<ul>
+  	<% @past.each do |past| %>
+ 			<li><%= link_to past.title, book_path(:id => past.olidb) %> by <%= past.author %></li>
+  	<% end %>
+	</ul>
 </div>
