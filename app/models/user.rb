@@ -5,10 +5,12 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :avatar, :books
-  	has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :avatar
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }
 
-has_many :collections, dependent: :destroy
-has_many :books, :through => :collections
-
+  has_many :collections, dependent: :destroy
+  has_many :books, :through => :collections
+  
+  
+  
 end
