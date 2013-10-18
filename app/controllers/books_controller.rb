@@ -42,7 +42,8 @@ class BooksController < ApplicationController
   # POST /books
   # POST /books.json
   def create
-    @book = Book.new(params[:book])
+    @book = Book.new(book_params)
+    #@book = Book.new(params[:book])
     
     if @book.save
       redirect_to root_path
@@ -84,5 +85,11 @@ class BooksController < ApplicationController
       format.html { redirect_to root_path }
       format.json { head :no_content }
     end
+  end
+  
+  private
+  
+  def book_params
+    params.require(:book).permit(:title, :author, :olida, :olidb, :user_id, :status)
   end
 end

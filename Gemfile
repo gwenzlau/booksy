@@ -8,7 +8,7 @@ gem 'simple_form'
 gem "paperclip", "~> 2.7"
 gem 'rails_admin'
 gem 'openlibrary', '2.1.1'
-gem 'protected_attributes'
+#gem 'protected_attributes'
 gem 'will_paginate'
 
 # Bundle edge Rails instead:
