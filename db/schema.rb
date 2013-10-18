@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131018171954) do
+ActiveRecord::Schema.define(version: 20131018193859) do
 
   create_table "books", force: true do |t|
     t.datetime "created_at", null: false
@@ -25,21 +25,6 @@ ActiveRecord::Schema.define(version: 20131018171954) do
   end
 
   add_index "books", ["user_id"], name: "index_books_on_user_id"
-
-  create_table "books_users", id: false, force: true do |t|
-    t.integer "book_id"
-    t.integer "user_id"
-  end
-
-  create_table "collections", force: true do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "user_id"
-    t.integer  "book_id"
-  end
-
-  add_index "collections", ["book_id"], name: "index_collections_on_book_id"
-  add_index "collections", ["user_id"], name: "index_collections_on_user_id"
 
   create_table "rails_admin_histories", force: true do |t|
     t.text     "message"
