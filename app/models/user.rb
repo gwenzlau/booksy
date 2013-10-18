@@ -4,13 +4,12 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  # Setup accessible (or protected) attributes for your model
-  # attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :avatar
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }
+  
+  #has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }
+  #validates_attachment_presence :avatar
+  #validates_attachment_size :avatar, :less_than => 5.megabytes
+  #validates_attachment_content_type :avatar, :content_type => ['image/jpeg', 'image/png']
 
-  #has_many :collections, dependent: :destroy
-  has_many :books, dependent: :destroy
-  
-  
+  has_many :books, dependent: :destroy  
   
 end
