@@ -8,8 +8,8 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :avatar
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }
 
-  has_many :collections, dependent: :destroy
-  has_many :books, :through => :collections
+  #has_many :collections, dependent: :destroy
+  has_many :books, dependent: :destroy
   
   
   

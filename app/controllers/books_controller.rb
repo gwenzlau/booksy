@@ -42,7 +42,8 @@ class BooksController < ApplicationController
   # POST /books
   # POST /books.json
   def create
-    @book = current_user.books.build(params[:book])
+    @book = Book.new(params[:book])
+    
     if @book.save
       redirect_to root_path
     else
