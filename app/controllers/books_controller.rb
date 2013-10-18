@@ -66,18 +66,7 @@ class BooksController < ApplicationController
   def update
     @book = Book.find(params[:id])
 
-    if @book.update_attribute(:olida, "1")
-      redirect_to root_path
-    else
-      redirect_to root_path
-    end
-  end
-  
-  # User finishes a book
-  def finished
-    @book = Book.find(params[:id])
-    
-    if @book.update_attributes(:olida => "1")
+    if @book.update_attribute(:status, "1")
       redirect_to root_path
     else
       redirect_to root_path

@@ -47,6 +47,7 @@ Looking for OLID: <%= params[:id] %><br />
 				<%= f.hidden_field :author, :value => book.author_name[0] %>
 				<%= f.hidden_field :olidb, :value => params[:id] %>
 				<%= f.hidden_field :olida, :value => "na" %>
+				<%= f.hidden_field :status, :value => "0" %>
 				<%= f.hidden_field :user_id, :value => current_user.id %>
 				<%= f.submit "Start reading this book", :class => "btn" %>
 				<% end %>
